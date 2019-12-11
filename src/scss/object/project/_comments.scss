@@ -1,0 +1,392 @@
+&comments {
+	$node-1: &;
+
+	&__list {
+		&-reply-title {
+			text-align: center;
+			font-size: calc-rem(13px);
+			margin-top: 40px;
+			color: $grey-500;
+			position: relative;
+
+			@include media-breakpoint-down(md) {
+				font-size: calc-vw(md, 13px);
+				margin-top: calc-vw(md, 40px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: calc-vw(sm, 22px);
+				margin-top: calc-vw(sm, 60px);
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				display: block;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background: $grey-300;
+			}
+
+			span {
+				position: relative;
+				z-index: 10;
+				display: inline-block;
+				background: $grey-200;
+				padding: 0 20px;
+
+				@include media-breakpoint-down(md) {
+					padding: 0 calc-vw(md, 20px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					padding: 0 calc-vw(md, 30px);
+				}
+			}
+
+			svg {
+				width: 12px;
+				height: 12px;
+				fill: $grey-500;
+				margin-right: 6px;
+
+				@include media-breakpoint-down(md) {
+					width: calc-vw(md, 12px);
+					height: calc-vw(md, 12px);
+					margin-right: calc-vw(md, 6px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: calc-vw(sm, 18px);
+					height: calc-vw(sm, 18px);
+					margin-right: calc-vw(sm, 9px);
+				}
+			}
+		}
+	}
+
+	&__item {
+		margin-top: 40px;
+		position: relative;
+
+		@include media-breakpoint-down(md) {
+			margin-top: calc-vw(md, 40px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-top: calc-vw(sm, 60px);
+		}
+
+		&Author {
+			display: flex;
+			align-items: flex-start;
+
+			&Image {
+				order: 1;
+				width: 50px;
+				flex-shrink: 0;
+
+				@include media-breakpoint-down(md) {
+					width: calc-vw(md, 50px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: calc-vw(sm, 75px);
+				}
+
+				img {
+					width: 50px;
+					height: 50px;
+					border-radius: 100%;
+
+					@include media-breakpoint-down(md) {
+						width: calc-vw(md, 50px);
+						height: calc-vw(md, 50px);
+					}
+
+					@include media-breakpoint-down(sm) {
+						width: calc-vw(sm, 75px);
+						height: calc-vw(sm, 75px);
+					}
+				}
+			}
+
+			&Meta {
+				order: 2;
+				flex-grow: 1;
+				width: calc(100% - 70px);
+				margin: 4px 0 0 20px;
+
+				@include media-breakpoint-down(md) {
+					width: calc(100% - #{calc-vw(md, 70px)});
+					margin: calc-vw(md, 4px) 0 0 calc-vw(md, 20px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: calc(100% - #{calc-vw(sm, 105px)});
+					margin: calc-vw(sm, 6px) 0 0 calc-vw(sm, 30px);
+				}
+			}
+
+			&Name {
+				font-size: calc-rem(16px);
+				margin: 0 0 4px;
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 16px);
+					margin: 0 0 calc-vw(md, 4px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 26px);
+					margin: 0 0 calc-vw(sm, 6px);
+				}
+
+				a {
+					color: $black;
+					@include fade-in();
+				}
+
+				&Num {
+					font-family: $font-family-point;
+					font-weight: 700;
+					margin-right: 4px;
+
+					@include media-breakpoint-down(md) {
+						margin-right: calc-vw(md, 4px);
+					}
+
+					@include media-breakpoint-down(sm) {
+						margin-right: calc-vw(sm, 6px);
+					}
+				}
+			}
+
+			&Date {
+				font-family: $font-family-point;
+				font-size: calc-rem(13px);
+				font-weight: 300;
+				color: $grey-500;
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 13px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 22px);
+				}
+
+				a {
+					color: $grey-500;
+					position: relative;
+					text-decoration: underline;
+					padding-left: 20px;
+
+					@include media-breakpoint-down(md) {
+						padding-left: calc-vw(md, 20px);
+					}
+
+					@include media-breakpoint-down(sm) {
+						padding-left: calc-vw(sm, 30px);
+					}
+
+					&:hover {
+						text-decoration: none;
+					}
+
+					&:before {
+						content: "";
+						display: block;
+						position: absolute;
+						left: 7px;
+						top: 5px;
+						width: 3px;
+						height: 3px;
+						background: $grey-500;
+						border-radius: 100%;
+
+						@include media-breakpoint-down(md) {
+							left: calc-vw(md, 7px);
+							top: calc-vw(md, 5px);
+							width: calc-vw(md, 3px);
+							height: calc-vw(md, 3px);
+						}
+
+						@include media-breakpoint-down(sm) {
+							left: calc-vw(sm, 10px);
+							top: calc-vw(sm, 8px);
+							width: calc-vw(sm, 5px);
+							height: calc-vw(sm, 5px);
+						}
+					}
+				}
+			}
+		}
+
+		&Content {
+			@extend %editable;
+			font-size: calc-rem(14px);
+			margin-top: 20px;
+			padding: 30px;
+			position: relative;
+			background: #fff;
+			border: 1px solid $grey-300;
+
+			@include media-breakpoint-down(md) {
+				font-size: calc-vw(md, 14px);
+				margin-top: calc-vw(md, 20px);
+				padding: calc-vw(md, 30px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: calc-vw(sm, 24px);
+				margin-top: calc-vw(sm, 30px);
+				padding: calc-vw(sm, 45px) calc-vw(sm, 30px);
+			}
+
+			&:before,
+			&:after {
+				position: absolute;
+				content: "";
+				width: 0;
+				height: 0;
+				border-style: solid;
+			}
+
+			&:before {
+				border-color: transparent transparent $white transparent;
+				border-width: 0 8px 12px 8px;
+				z-index: 10;
+				left: 16px;
+				top: -12px;
+
+				@include media-breakpoint-down(md) {
+					border-width: 0 calc-vw(md, 8px) calc-vw(md, 12px) calc-vw(md, 8px);
+					left: calc-vw(md, 16px);
+					top: calc-vw(md, -11px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					border-width: 0 calc-vw(sm, 12px) calc-vw(sm, 18px) calc-vw(sm, 12px);
+					left: calc-vw(sm, 24px);
+					top: calc-vw(sm, -18px);
+				}
+			}
+
+			&:after {
+				border-color: transparent transparent $grey-300 transparent;
+				border-width: 0 10px 14px 10px;
+				z-index: 5;
+				left: 14px;
+				top: -14px;
+
+				@include media-breakpoint-down(md) {
+					border-width: 0 calc-vw(md, 10px) calc-vw(md, 14px) calc-vw(md, 10px);
+					left: calc-vw(md, 14px);
+					top: calc-vw(md, -14px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					border-width: 0 calc-vw(sm, 15px) calc-vw(sm, 20px) calc-vw(sm, 15px);
+					left: calc-vw(sm, 20px);
+					top: calc-vw(sm, -20px);
+				}
+			}
+
+			h2 {
+				font-size: calc-rem(24px);
+				padding: 15px 30px;
+				margin-left: -30px;
+				margin-right: -30px;
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 24px);
+					margin-left: calc-vw(md, -30px);
+					margin-right: calc-vw(md, -30px);
+					padding: calc-vw(md, 15px) calc-vw(md, 30px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 34px);
+					margin: 1.5em calc-vw(sm, -30px) 1em;
+					padding: calc-vw(sm, 20px) calc-vw(sm, 30px);
+				}
+			}
+
+			h3 {
+				font-size: calc-rem(20px);
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 20px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 30px);
+				}
+			}
+		}
+
+		&Action {
+			text-align: right;
+			margin-top: 20px;
+
+			@include media-breakpoint-down(md) {
+				margin-top: calc-vw(md, 20px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				margin-top: calc-vw(sm, 30px);
+			}
+
+			a {
+				background: $black;
+				color: $white;
+				font-size: calc-rem(12px);
+				font-family: $font-family-point;
+				padding: 3px 20px;
+				border-radius: 20px;
+				text-decoration: none;
+				@include fade-in();
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 12px);
+					margin-top: calc-vw(md, 20px);
+					padding: calc-vw(md, 3px) calc-vw(md, 20px);
+					border-radius: calc-vw(md, 20px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 22px);
+					margin-top: calc-vw(sm, 30px);
+					padding: calc-vw(sm, 5px) calc-vw(sm, 50px);
+					border-radius: calc-vw(sm, 30px);
+					margin-bottom: calc-vw(sm, -15px);
+				}
+
+				&:hover {
+					@include media-breakpoint-up(md) {
+						color: $white;
+					}
+
+					@include media-breakpoint-down(sm) {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		#{$node-1}__list {
+			margin-left: 70px;
+
+			@include media-breakpoint-down(md) {
+				margin-left: calc-vw(md, 70px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				margin-left: calc-vw(sm, 60px);
+			}
+		}
+	}
+}

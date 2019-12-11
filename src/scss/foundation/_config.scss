@@ -1,0 +1,22 @@
+// fonts
+$font-family-sans-serif: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+$font-family-monospace: "Roboto Mono", "Courier New", Consolas, monospace;
+$font-family-point: "Roboto", sans-serif;
+
+// colors
+$grey-100: #f6f6f6;
+$grey-200: #efefef;
+$grey-300: #e0e0e0;
+$grey-400: #d3d3d3;
+$grey-500: #999;
+$grey-600: #666;
+$black: #333;
+
+// transition speeds
+$transition-speed-slow: 600ms;
+$transition-speed-medium: 400ms;
+$transition-speed-fast: 200ms;
+
+// links
+$link-color: lighten($black, 20%);
+$link-hover-decoration: none;

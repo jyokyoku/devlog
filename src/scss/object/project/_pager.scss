@@ -1,0 +1,60 @@
+&pager {
+	$node-1: &;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 50px 0 0;
+	padding: 0;
+
+	@include media-breakpoint-down(md) {
+		margin: calc-vw(md, 50px) 0 0;
+	}
+
+	@include media-breakpoint-down(sm) {
+		margin: calc-vw(sm, 75px) 0 0;
+	}
+
+	&__item {
+		list-style: none;
+		border: 1px solid $grey-300;
+		margin-left: -1px;
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: calc-rem(14px);
+			width: 50px;
+			height: 50px;
+			background-color: $white;
+			@include trans(background-color color);
+
+			@include media-breakpoint-down(md) {
+				font-size: calc-vw(md, 14px);
+				width: calc-vw(md, 50px);
+				height: calc-vw(md, 50px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: calc-vw(sm, 21px);
+				width: calc-vw(sm, 75px);
+				height: calc-vw(sm, 75px);
+			}
+
+			&:hover {
+				@include media-breakpoint-up(md) {
+					background-color: $black;
+					color: $white;
+				}
+			}
+		}
+
+		&--current {
+			a {
+				background-color: $black;
+				color: $white;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+&footer {
+	position: absolute;
+	width: 100%;
+	background: $black;
+	color: lighten($black, 30%);
+	left: 0;
+	bottom: 0;
+
+	&__copyright {
+		height: 60px;
+		display: flex;
+		align-items: center;
+		font-size: calc-rem(13px);
+		padding: 0 20px;
+		margin: 0;
+
+		@include media-breakpoint-down(md) {
+			height: calc-vw(md, 60px);
+			font-size: calc-vw(md, 13px);
+			padding: 0 calc-vw(md, 20px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			height: calc-vw(sm, 90px);
+			font-size: calc-vw(sm, 20px);
+			padding: 0 calc-vw(sm, 30px);
+		}
+	}
+}

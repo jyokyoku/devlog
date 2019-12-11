@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/*!
+ * Coding style from FLOCSS
+ * https://github.com/hiloki/flocss
+ */
+
+.dl- {
+	&media-upload {
+		&__action {
+			&-btn {
+				&.is-hidden {
+					display: none;
+				}
+			}
+		}
+
+		&__img {
+			img {
+				width: 100%;
+				max-width: 200px;
+				height: auto;
+			}
+		}
+	}
+}

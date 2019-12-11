@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "DevLog\\": "app"
+    }
+  },
+  "require": {
+    "jyokyoku/iwf2b": "dev-master",
+    "gabrielgil/timthumb": "dev-master",
+    "ozdemirburak/iris" : "~1.0",
+    "psr/log": "^1.1"
+  }
+}

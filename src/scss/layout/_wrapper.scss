@@ -1,0 +1,15 @@
+&wrapper {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 60px;
+	background: $grey-200;
+
+	@include media-breakpoint-down(md) {
+		padding-bottom: calc-vw(md, 60px);
+	}
+
+	@include media-breakpoint-down(sm) {
+		padding-bottom: calc-vw(sm, 90px);
+		overflow: hidden;
+	}
+}

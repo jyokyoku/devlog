@@ -1,0 +1,27 @@
+&post-content {
+	@extend %editable;
+	border: 1px solid $grey-300;
+	background: $white;
+	margin: 0 auto;
+
+	h2 {
+		margin-left: -50px;
+		margin-right: -50px;
+		padding-left: 50px;
+		padding-right: 50px;
+
+		@include media-breakpoint-down(md) {
+			margin-left: calc-vw(md, -50px);
+			margin-right: calc-vw(md, -50px);
+			padding-left: calc-vw(md, 50px);
+			padding-right: calc-vw(md, 50px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-left: calc-vw(sm, -30px);
+			margin-right: calc-vw(sm, -30px);
+			padding-left: calc-vw(sm, 30px);
+			padding-right: calc-vw(sm, 30px);
+		}
+	}
+}

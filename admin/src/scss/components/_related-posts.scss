@@ -1,0 +1,110 @@
+
+.debugInfo {
+	position: absolute;
+	white-space: nowrap;
+}
+
+.dl- {
+	&related-posts {
+		&__add-btn {
+			margin-top: 15px;
+		}
+
+		&__item {
+			display: flex;
+			position: relative;
+			align-items: stretch;
+			margin-top: 10px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&-selector {
+				margin-right: 8px;
+				flex-grow: 1;
+			}
+
+			&-action {
+				width: 14px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			&-drag-handle {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				width: 16px;
+				height: 16px;
+				margin-bottom: 5px;
+				cursor: move;
+				position: relative;
+				border: 1px solid #bbb;
+				background: #fff;
+				border-radius: 2px;
+
+				span {
+					position: absolute;
+					width: calc(100% - 6px);
+					height: 2px;
+					background: #bbb;
+					left: calc(50% - 4px);
+
+					&:nth-child(1) {
+						top: 3px;
+					}
+
+					&:nth-child(2) {
+						top: calc(50% - 1px);
+					}
+
+					&:nth-child(3) {
+						bottom: 3px;
+					}
+				}
+			}
+
+			&-remove {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				text-indent: -9999px;
+				position: relative;
+				width: 16px;
+				height: 16px;
+				cursor: pointer;
+				transition: opacity 0.1s ease;
+				border: 1px solid #bbb;
+				border-radius: 2px;
+				background: #fff;
+
+				&:hover {
+					opacity: 0.6;
+				}
+
+				&:before,
+				&:after {
+					content: "";
+					width: 10px;
+					height: 2px;
+					background: #bbb;
+					position: absolute;
+					transform-origin: center center;
+				}
+
+				&:before {
+					transform: rotate(45deg);
+				}
+
+				&:after {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}

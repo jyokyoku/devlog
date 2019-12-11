@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+/*!
+ * Coding style from FLOCSS
+ * https://github.com/hiloki/flocss
+ */
+
+// Use wildcard import with gulp-sass-glob
+// https://www.npmjs.com/package/gulp-sass-glob
+
+// Config and functions, mixins
+@import "foundation/config";
+@import "foundation/functions";
+@import "foundation/mixins";
+
+// Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Base
+@import "foundation/base";
+
+// Templates
+@import "foundation/template/**";
+
+// Layouts
+.l- {
+	@import "layout/**";
+}
+
+// Components
+.c- {
+	@import "object/component/**";
+}
+
+// Projects
+.p- {
+	@import "object/project/**";
+}
+
+// Utilities
+.u- {
+	@import "object/utility/**";
+}

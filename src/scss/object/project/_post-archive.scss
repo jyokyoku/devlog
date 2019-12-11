@@ -1,0 +1,125 @@
+&post-archive {
+	&__title {
+		font-size: calc-rem(26px);
+		margin: 0 0 50px;
+		text-align: center;
+		position: relative;
+		color: $black;
+
+		@include media-breakpoint-down(md) {
+			font-size: calc-vw(md, 26px);
+			margin: 0 0 calc-vw(md, 50px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			font-size: calc-vw(sm, 39px);
+			margin: 0 0 calc-vw(sm, 75px);
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: $grey-400;
+		}
+
+		span {
+			position: relative;
+			z-index: 10;
+			display: inline-block;
+			background: $grey-200;
+			padding: 0 30px;
+
+			@include media-breakpoint-down(md) {
+				padding: 0 calc-vw(md, 30px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				padding: 0 calc-vw(md, 45px);
+			}
+		}
+	}
+
+	&__search {
+		margin-bottom: 50px;
+
+		@include media-breakpoint-down(md) {
+			margin-bottom: calc-vw(md, 50px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: calc-vw(sm, 75px);
+		}
+
+		&-form {
+			display: flex;
+			align-items: stretch;
+			width: 100%;
+		}
+
+		&-field {
+			border: 1px solid $grey-300;
+			height: 60px;
+			flex-grow: 1;
+			padding: 0 20px;
+			font-size: calc-rem(14px);
+			outline: none;
+			@include ios-field();
+			@include placeholder($grey-400);
+
+			@include media-breakpoint-down(md) {
+				padding: 0 calc-vw(md, 20px);
+				height: calc-vw(md, 60px);
+				font-size: calc-vw(md, 14px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				padding: 0 calc-vw(sm, 30px);
+				height: calc-vw(sm, 90px);
+				font-size: calc-vw(sm, 21px);
+			}
+		}
+
+		&-btn {
+			background: $black;
+			border: 1px solid $black;
+			width: 60px;
+			flex-shrink: 0;
+			outline: none;
+			position: relative;
+			@include fade-in();
+
+			@include media-breakpoint-down(md) {
+				width: calc-vw(md, 60px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: calc-vw(sm, 90px);
+			}
+
+			svg {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%, -50%, 0);
+				width: 16px;
+				height: 16px;
+				fill: $white;
+
+				@include media-breakpoint-down(md) {
+					width: calc-vw(md, 16px);
+					height: calc-vw(md, 16px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: calc-vw(sm, 24px);
+					height: calc-vw(sm, 24px);
+				}
+			}
+		}
+	}
+}

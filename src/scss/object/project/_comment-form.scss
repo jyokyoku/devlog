@@ -1,0 +1,452 @@
+&comment-form {
+	$node-2: &;
+	margin-top: 50px;
+	font-weight: 300;
+
+	@include media-breakpoint-down(md) {
+		margin-top: calc-vw(md, 50px);
+	}
+
+	@include media-breakpoint-down(sm) {
+		margin-top: calc-vw(md, 75px);
+	}
+
+	&__title {
+		background: $black;
+		color: $white;
+		text-align: center;
+		font-size: calc-rem(24px);
+		padding: 12px 0;
+		margin: 0;
+
+		@include media-breakpoint-down(md) {
+			font-size: calc-vw(md, 24px);
+			padding: calc-vw(md, 12px) 0;
+		}
+
+		@include media-breakpoint-down(sm) {
+			font-size: calc-vw(sm, 36px);
+			padding: calc-vw(sm, 18px) 0;
+		}
+	}
+
+	&__reply-to {
+		display: block;
+		padding-left: 40px;
+		position: relative;
+		color: $white;
+
+		@include media-breakpoint-down(md) {
+			padding-left: calc-vw(md, 40px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding-left: calc-vw(sm, 60px);
+		}
+
+		a {
+			color: inherit;
+			display: block;
+			max-width: 400px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			@include media-breakpoint-down(md) {
+				max-width: calc-vw(md, 400px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				max-width: calc-vw(sm, 300px);
+			}
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			background: $white;
+			position: absolute;
+			left: 15px;
+			top: calc(50% - 1px);
+			width: 12px;
+			height: 1px;
+
+			@include media-breakpoint-down(md) {
+				left: calc-vw(md, 15px);
+				top: calc(50% - #{calc-vw(md, 1px)});
+				width: calc-vw(md, 12px);
+				height: calc-vw(md, 1px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				left: calc-vw(sm, 22px);
+				top: calc(50% - #{calc-vw(sm, 1px)});
+				width: calc-vw(sm, 18px);
+				height: calc-vw(sm, 1px);
+			}
+		}
+
+		&:before {
+			transform: rotate(45deg) translateY(1px);
+			transform-origin: right top;
+		}
+
+		&:after {
+			transform: rotate(-45deg) translateY(-1px);
+			transform-origin: right bottom;
+		}
+	}
+
+	%component {
+		margin-bottom: 15px;
+
+		@include media-breakpoint-down(md) {
+			margin-bottom: calc-vw(md, 15px)
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: calc-vw(sm, 22px)
+		}
+	}
+
+	%label {
+		display: block;
+		font-size: 14px;
+		font-weight: 500;
+
+		@include media-breakpoint-down(md) {
+			font-size: calc-vw(md, 14px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			font-size: calc-vw(sm, 20px);
+		}
+	}
+
+	%field {
+		@include ios-field;
+		width: 100%;
+		border: 1px solid $grey-400;
+		height: 40px;
+		padding: 0 10px;
+		font-size: calc-rem(14px);
+		vertical-align: top;
+
+		@include media-breakpoint-down(md) {
+			height: calc-vw(md, 40px);
+			padding: 0 calc-vw(md, 10px);
+			font-size: calc-vw(md, 14px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			height: calc-vw(sm, 60px);
+			padding: 0 calc-vw(sm, 15px);
+			font-size: calc-vw(sm, 20px);
+		}
+	}
+
+	.comment {
+		&-respond {
+			background: $white;
+			padding: 30px;
+
+			@include media-breakpoint-down(md) {
+				padding: calc-vw(md, 30px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				padding: calc-vw(sm, 30px);
+			}
+
+			p {
+				font-size: 14px;
+				margin-bottom: 20px;
+
+				@include media-breakpoint-down(md) {
+					font-size: calc-vw(md, 14px);
+					margin-bottom: calc-vw(md, 20px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					font-size: calc-vw(sm, 24px);
+					margin-bottom: calc-vw(sm, 30px);
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				a {
+					color: $black;
+					text-decoration: underline;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		&-reply-title {
+			background: $black;
+			color: $white;
+			text-align: center;
+			font-size: calc-rem(24px);
+			padding: 12px 0;
+			margin: -30px -30px 30px;
+			position: relative;
+
+			@include media-breakpoint-down(md) {
+				margin: calc-vw(md, -30px) calc-vw(md, -30px) calc-vw(md, 30px);
+				font-size: calc-vw(md, 24px);
+				padding: calc-vw(md, 12px) 0;
+			}
+
+			@include media-breakpoint-down(sm) {
+				margin: calc-vw(sm, -30px) calc-vw(sm, -30px) calc-vw(md, 30px);
+				font-size: calc-vw(sm, 32px);
+				padding: calc-vw(sm, 18px) 0;
+			}
+
+			.u-point {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			small {
+				a {
+					position: absolute;
+					right: 15px;
+					top: 50%;
+					transform: translateY(-50%);
+					display: block;
+					text-indent: -9999px;
+					background: $white;
+					width: 24px;
+					height: 24px;
+
+					@include media-breakpoint-down(md) {
+						right: calc-vw(md, 15px);
+						width: calc-vw(md, 24px);
+						height: calc-vw(md, 24px);
+					}
+
+					@include media-breakpoint-down(sm) {
+						right: calc-vw(sm, 22px);
+						width: calc-vw(sm, 36px);
+						height: calc-vw(sm, 36px);
+					}
+
+					&:before,
+					&:after {
+						content: "";
+						position: absolute;
+						background: $black;
+						width: 16px;
+						height: 2px;
+						transform-origin: center;
+						left: 50%;
+						top: 50%;
+						@include trans(transform);
+
+						@include media-breakpoint-down(md) {
+							width: calc-vw(md, 16px);
+							height: calc-vw(md, 2px);
+						}
+
+						@include media-breakpoint-down(sm) {
+							width: calc-vw(sm, 26px);
+							height: calc-vw(sm, 3px);
+						}
+					}
+
+					&:before {
+						transform: translate3d(-50%, -50%, 0) rotate(45deg);
+					}
+
+					&:after {
+						transform: translate3d(-50%, -50%, 0) rotate(135deg);
+					}
+
+					&:hover {
+						&:before {
+							transform: translate3d(-50%, -50%, 0) rotate(0deg);
+						}
+
+						&:after {
+							transform: translate3d(-50%, -50%, 0) rotate(0deg);
+						}
+					}
+				}
+			}
+		}
+
+		&-form {
+			display: flex;
+			flex-wrap: wrap;
+
+			&-comment {
+				@extend %component;
+				width: 100%;
+
+				label {
+					@extend %label;
+				}
+
+				textarea {
+					@extend %field;
+					height: 160px;
+					padding: 10px;
+
+					@include media-breakpoint-down(md) {
+						height: calc-vw(md, 160px);
+						padding: calc-vw(md, 10px);
+					}
+
+					@include media-breakpoint-down(sm) {
+						height: calc-vw(sm, 240px);
+						padding: calc-vw(sm, 15px);
+					}
+				}
+			}
+
+			&-author {
+				@extend %component;
+				width: calc(50% - 15px);
+				margin-right: 15px;
+
+				@include media-breakpoint-down(md) {
+					width: calc(50% - #{calc-vw(md, 15px)});
+					margin-right: calc-vw(md, 15px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+					margin-right: 0;
+				}
+
+				label {
+					@extend %label;
+				}
+
+				input {
+					@extend %field;
+				}
+			}
+
+			&-email {
+				@extend %component;
+				width: calc(50% - 15px);
+				margin-left: 15px;
+
+				@include media-breakpoint-down(md) {
+					width: calc(50% - #{calc-vw(md, 15px)});
+					margin-left: calc-vw(md, 15px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+					margin-left: 0;
+				}
+
+				label {
+					@extend %label;
+				}
+
+				input {
+					@extend %field;
+				}
+			}
+
+			&-url {
+				@extend %component;
+				width: 100%;
+
+				label {
+					@extend %label;
+				}
+
+				input {
+					@extend %field;
+				}
+			}
+
+			&-cookies-consent {
+				@extend %component;
+				width: 100%;
+				display: flex;
+
+				input {
+					width: 20px;
+					height: 20px;
+					margin: 3px 10px 0 0;
+
+					@include media-breakpoint-down(md) {
+						width: calc-vw(md, 20px);
+						height: calc-vw(md, 20px);
+						margin: calc-vw(md, 3px) calc-vw(md, 10px) 0 0;
+					}
+
+					@include media-breakpoint-down(sm) {
+						width: calc-vw(sm, 30px);
+						height: calc-vw(sm, 30px);
+						margin: calc-vw(sm, 4px) calc-vw(sm, 15px) 0 0;
+					}
+				}
+
+				label {
+					font-size: 14px;
+					margin: 0;
+					width: calc(100% - 30px);
+
+					@include media-breakpoint-down(md) {
+						font-size: calc-vw(md, 14px);
+						width: calc(100% - #{calc-vw(md, 30px)});
+					}
+
+					@include media-breakpoint-down(sm) {
+						font-size: calc-vw(sm, 24px);
+						width: calc(100% - #{calc-vw(sm, 45px)});
+					}
+				}
+			}
+		}
+	}
+
+	.form-submit {
+		margin-left: auto;
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
+
+		input {
+			width: 250px;
+			background: $black;
+			padding: 8px 0;
+			color: $white;
+			font-family: $font-family-point;
+			font-weight: 300;
+			font-size: calc-rem(14px);
+			border: none;
+			@include ios-field;
+			border-radius: 50px;
+			@include fade-in;
+
+			@include media-breakpoint-down(md) {
+				width: calc-vw(md, 250px);
+				padding: calc-vw(md, 8px) 0;
+				font-size: calc-vw(md, 14px);
+				border-radius: calc-vw(md, 50px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: 100%;
+				padding: calc-vw(sm, 12px) 0;
+				font-size: calc-vw(sm, 24px);
+				border-radius: calc-vw(sm, 50px);
+			}
+		}
+	}
+}

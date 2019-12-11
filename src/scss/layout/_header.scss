@@ -1,0 +1,170 @@
+&header {
+	height: 60px;
+	background: $white;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	padding: 0 20px 0 80px;
+	border-bottom: 1px solid $grey-300;
+	z-index: 90;
+
+	@include media-breakpoint-down(md) {
+		height: calc-vw(md, 60px);
+		padding: 0 calc-vw(md, 20px) 0 calc-vw(md, 80px);
+	}
+
+	@include media-breakpoint-down(sm) {
+		height: calc-vw(sm, 90px);
+		padding: 0 calc-vw(sm, 30px) 0 calc-vw(sm, 120px);
+	}
+
+	&--with-admin-bar {
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
+
+	&__title {
+		font-size: calc-rem(24px);
+		margin: 0;
+		position: relative;
+		left: 0;
+		@include trans(left);
+
+		@include media-breakpoint-down(md) {
+			font-size: calc-vw(md, 24px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			font-size: calc-vw(sm, 36px);
+		}
+
+		&.is-hide {
+			left: -100px;
+
+			@include media-breakpoint-down(md) {
+				left: calc-vw(md, -100px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				left: calc-vw(sm, -150px);
+			}
+		}
+
+		a {
+			color: $black;
+		}
+	}
+
+	&__search {
+		$node-2: &;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		height: 60px;
+		top: 0;
+		right: -300px;
+		@include trans(right, $transition-speed-medium);
+
+		@include media-breakpoint-down(md) {
+			height: calc-vw(md, 60px);
+			right: calc-vw(md, -300px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			height: calc-vw(sm, 90px);
+			right: calc-vw(sm, -300px);
+		}
+
+		&.is-open {
+			right: 0;
+
+			#{$node-2}-form {
+				animation: fade-in ease $transition-speed-medium forwards;
+			}
+		}
+
+		&-btn {
+			width: 60px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			outline: none;
+
+			@include media-breakpoint-down(md) {
+				width: calc-vw(md, 60px);
+				height: calc-vw(md, 60px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: calc-vw(sm, 90px);
+				height: calc-vw(sm, 90px);
+			}
+
+			svg {
+				fill: $black;
+				width: 16px;
+				height: 16px;
+
+				@include media-breakpoint-down(md) {
+					width: calc-vw(md, 16px);
+					height: calc-vw(md, 16px);
+				}
+
+				@include media-breakpoint-down(sm) {
+					width: calc-vw(sm, 24px);
+					height: calc-vw(sm, 24px);
+				}
+			}
+		}
+
+		&-form {
+			display: block;
+			width: 300px;
+			animation: fade-out ease $transition-speed-medium forwards;
+
+			@include media-breakpoint-down(md) {
+				width: calc-vw(md, 300px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: calc-vw(sm, 300px);
+			}
+		}
+
+		&-field {
+			width: 300px;
+			height: 60px;
+			padding: 0 20px;
+			border: none;
+			margin: 0;
+			box-sizing: border-box;
+			background: $black;
+			color: $white;
+			font-size: calc-rem(14px);
+			outline: none;
+			@include ios-field;
+			@include placeholder(lighten($black, 30%));
+
+			@include media-breakpoint-down(md) {
+				width: calc-vw(md, 300px);
+				height: calc-vw(md, 60px);
+				padding: 0 calc-vw(md, 20px);
+				font-size: calc-vw(md, 14px);
+			}
+
+			@include media-breakpoint-down(sm) {
+				width: calc-vw(sm, 300px);
+				height: calc-vw(sm, 90px);
+				padding: 0 calc-vw(sm, 30px);
+				font-size: calc-vw(sm, 20px);
+			}
+		}
+	}
+}

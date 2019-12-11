@@ -1,0 +1,29 @@
+<%
+dummyImg = (width = 400, height = 200, dummyText = null, bgColor = null, textColor = null) => {
+    if (bgColor && !textColor) {
+        textColor = 'cccccc';
+    }
+
+    const re = new RegExp("^(#+)?|(#+)?$", 'g');
+
+    bgColor = bgColor ? '/' + bgColor.replace(re, '') : '';
+    textColor = textColor ? '/' + textColor.replace(re, '') : '';
+    dummyText = dummyText ? '?text=' + dummyText : '';
+
+    return `//placehold.jp${bgColor}${textColor}/${width}x${height}.jpg${dummyText}`;
+}
+
+dummyPhoto = (width = 400, height = 200, dummyText = '', category = null, grey = false) => {
+    const categories = ['abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport'];
+    const num = Math.floor(Math.random() * 10);
+
+    if (categories.indexOf(category) < 0) {
+        category = categories[Math.floor(Math.random() * categories.length)];
+    }
+
+    grey = grey ? 'g/' : '';
+    dummyText = dummyText ? '/' + dummyText : '';
+
+    return `//lorempixel.com/${grey}${width}/${height}/${category}/${num}${dummyText}`;
+}
+%>

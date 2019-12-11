@@ -1,0 +1,44 @@
+&body {
+	padding: 110px 0 50px;
+	min-height: 100%;
+
+	@include media-breakpoint-down(md) {
+		padding: calc-vw(md, 110px) 0 calc-vw(md, 50px);
+	}
+
+	@include media-breakpoint-down(sm) {
+		padding: calc-vw(sm, 165px) 0 calc-vw(sm, 75px);
+	}
+
+	&--centered {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding: 60px 0;
+
+		@include media-breakpoint-down(md) {
+			padding: calc-vw(md, 60px) 0;
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding: calc-vw(sm, 90px) 0;
+		}
+	}
+
+	&--no-top-padding {
+		padding-top: 60px;
+
+		@include media-breakpoint-down(md) {
+			padding-top: calc-vw(md, 60px);
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding-top: calc-vw(sm, 60px);
+		}
+	}
+}

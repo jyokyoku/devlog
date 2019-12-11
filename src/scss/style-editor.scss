@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/*!
+ * Coding style from FLOCSS
+ * https://github.com/hiloki/flocss
+ */
+
+// Use wildcard import with gulp-sass-glob
+// https://www.npmjs.com/package/gulp-sass-glob
+@import "foundation/config";
+@import "foundation/functions";
+@import "foundation/mixins";
+
+// Include bootstrap utilities
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Templates
+@import "foundation/template/**";
+
+.wp-block {
+	max-width: 1200px;
+
+	&[data-align="wide"] {
+		max-width: 1200px;
+	}
+
+	&[data-align="full"] {
+		max-width: 1200px;
+	}
+}
+
+body {
+	@extend %editable;
+}

@@ -1,0 +1,44 @@
+_:lang(x)::-ms-backdrop, body {
+	/* IE11で游ゴシック・游明朝系が崩れる対策 */
+	font-family: "メイリオ", Meiryo, sans-serif;
+}
+
+html,
+body {
+	height: 100%;
+	word-wrap: break-word;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	1% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	99% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	html #wpadminbar {
+		position: fixed;
+	}
+}

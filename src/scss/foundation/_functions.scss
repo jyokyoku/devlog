@@ -1,0 +1,107 @@
+////
+/// Utility functions
+/// @author Masayuki Ietomi <jyokyoku@gmail.com>
+////
+
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+@function to-fixed($number, $digits: 0, $round: 'round') {
+	$n: 1;
+
+	@if type-of($number) != number {
+		@warn '#{ $number } is not a number.';
+		@return $number;
+	}
+
+	@if type-of($digits) != number {
+		@warn '#{ $digits } is not a number.';
+		@return $number;
+	} @else if not unitless($digits) {
+		@warn '#{ $digits } has a unit.';
+		@return $number;
+	}
+
+	@for $i from 1 through $digits {
+		$n: $n * 10;
+	}
+
+	@if $round == 'round' {
+		@return round($number * $n) / $n;
+	} @else if $round == 'ceil' {
+		@return ceil($number * $n) / $n;
+	} @else if $round == 'floor' {
+		@return floor($number * $n) / $n;
+	} @else {
+		@warn '#{ $round } is undefined keyword.';
+		@return $number;
+	}
+}
+
+@function num-round($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'round');
+}
+
+@function num-ceil($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'ceil');
+}
+
+@function num-floor($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'floor');
+}
+
+@function calc-rem($base-font-size, $value: null) {
+	@if $value == null {
+		$value: $base-font-size;
+		$base-font-size: 16px;
+	}
+
+	@if type-of($value) != "number" {
+		@return $value;
+
+	} @else if strip-unit($value) == 0 {
+		@return 0;
+
+	} @else if not unitless($value) {
+		@if unit($value) == px {
+			@return #{num-round($value / $base-font-size, 4)}rem;
+
+		} @else if unit($value) == pt {
+			@return #{num-round($value * 1.333333333, 4) / $base-font-size}rem;
+
+		} @else if unit($value) == em {
+			@return #{strip-unit($value)}rem;
+
+		} @else if unit($value) == '%' {
+			@return #{num-round(strip-unit($value) / 100, 4)}rem;
+		}
+	}
+
+	@return $value;
+}
+
+@function calc-vw($max-width, $value) {
+	@if type_of($max-width) == string {
+		@if not map-has-key($grid-breakpoints, $max-width) {
+			@warn '#{$max-width} is not valid breakpoint name.';
+			@return $value;
+		}
+
+		$max-width: breakpoint-max($max-width, $grid-breakpoints);
+	}
+
+	$context-vw: ($max-width * 0.01) / 1px * 1px; // 1% viewport width
+
+	@return num-ceil(($value / $context-vw) * 1vw, 3);
+}
+
+@function calc-vh($max-height, $value) {
+	$context-vh: ($max-height * 0.01) / 1px * 1px; // 1% viewport height
+
+	@return num-ceil(($value / $context-vh) * 1vh, 3);
+}

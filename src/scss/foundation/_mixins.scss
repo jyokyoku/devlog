@@ -1,0 +1,62 @@
+////
+/// Utility mixins
+/// @author Masayuki Ietomi <jyokyoku@gmail.com>
+////
+
+$transition-speed-slow: 500ms !default;
+$transition-speed-medium: 250ms !default;
+$transition-speed-fast: 100ms !default;
+$transition-function: ease !default;
+$transition-delay: 0s !default;
+
+@mixin trans($prop: null, $duration: $transition-speed-fast, $function: $transition-function, $delay: $transition-delay) {
+	backface-visibility: hidden;
+
+	@if type_of($prop) == 'null' {
+		transition-delay: $delay;
+		transition-duration: $duration;
+		transition-timing-function: $function;
+
+	} @else if type_of($prop) == 'list' {
+		$transitions: ();
+
+		@each $prop-chunk in $prop {
+			$transitions: append($transitions, #{$prop-chunk $duration $function $delay}, $separator: comma);
+		}
+
+		transition: $transitions;
+
+	} @else if type_of($prop) == 'string' {
+		transition: $prop $duration $function $delay;
+	}
+}
+
+@mixin ios-field() {
+	outline: none;
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+@mixin fade-in($speed: $transition-speed-fast) {
+	@include media-breakpoint-up(md) {
+		transition: opacity ease $speed;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+@mixin placeholder($color) {
+	&::placeholder {
+		color: $color;
+	}
+}
+
+@mixin clearfix() {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

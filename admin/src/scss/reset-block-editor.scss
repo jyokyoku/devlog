@@ -1,0 +1,30 @@
+.editor-styles-wrapper {
+	font-family: 'Noto Sans JP', sans-serif !important;
+
+	.block-library-list ol,
+	.block-library-list ul {
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	.wp-block-quote {
+		border-left: none;
+	}
+
+	.wp-block-code {
+		.block-editor-plain-text {
+			color: #fff !important;
+			background: transparent;
+
+			&::placeholder {
+				color: #fff !important;
+			}
+		}
+	}
+}
+
+.edit-post-sidebar {
+	> .components-panel {
+		overflow: visible !important;
+	}
+}
